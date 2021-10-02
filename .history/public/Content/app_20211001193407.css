@@ -1,0 +1,17 @@
+/* custom css goes here */
+
+.formColor{
+    margin-bottom: 1px;
+    padding-bottom: 1px;
+    position: relative;
+}
+
+body {
+    
+    width: 960px;
+   
+    font-family: verdana, arial, helvetica, sans-serif;
+    background: rgb(20, 131, 165);
+    
+    
+ }
