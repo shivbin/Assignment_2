@@ -14,20 +14,20 @@ module.exports.displayHomePage = (req, res, next) => {
 }
 
 module.exports.displayAboutPage = (req, res, next) => {
-    res.render('index', { title: 'About', page: 'about', displayName: req.user ? req.user.displayName : ''});
+    res.render('index', { title: 'About', page: 'about'});
 }
 
 module.exports.displayProjectPage = (req, res, next) => {
-    res.render('index', { title: 'Projects', page: 'projects', displayName: req.user ? req.user.displayName : ''});
+    res.render('index', { title: 'Projects', page: 'projects'});
 }
 
 module.exports.displayServicesPage = (req, res, next) => {
-    res.render('index', { title: 'Services', page: 'services', displayName: req.user ? req.user.displayName : ''});
+    res.render('index', { title: 'Services', page: 'services'});
 }
 
 
 module.exports.displayContactsPage = (req, res, next) => {
-    res.render('index', { title: 'Contact-me', page: 'contact', displayName: req.user ? req.user.displayName : ''});
+    res.render('index', { title: 'Contact-me', page: 'contact'});
 }
 
 

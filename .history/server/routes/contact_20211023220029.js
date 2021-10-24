@@ -4,13 +4,12 @@ let mongoose = require('mongoose');
 
 let passport = require('passport');
 
-
 let contactController = require('../controllers/contact');
 
 // helper function for guard purposes
 function requireAuth(req, res, next)
 {
-    // check if the user is logged in
+    // check if the user is logged in return user to login page
     if(!req.isAuthenticated())
     {
         return res.redirect('/login');
@@ -18,9 +17,11 @@ function requireAuth(req, res, next)
     next();
 }
 
+
+
 /*  Get Route for the Contact List page  - REad Operation   */
 
-router.get('/', requireAuth, contactController.displayContactList);
+router.get('/', contactController.displayContactList);
 
 
 /*  Get Route for displaying ADD Contact List page  - Create Operation   */

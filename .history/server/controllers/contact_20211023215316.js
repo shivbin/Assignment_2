@@ -16,16 +16,13 @@ module.exports.displayContactList = (req, res, next) => {
         {
             //console.log(contactList);
 
-            res.render('contact/list', {title: 'Contact List', ContactList: contactList, 
-            displayName: req.user ? req.user.displayName : ''});
+            res.render('contact/list', {title: 'Contact List', ContactList: contactList});
         }
     });
 }
 
 module.exports.displayAddPage = (req, res, next) => {
-    res.render('contact/add', {title: 'Add Contact',
-    displayName: req.user ? req.user.displayName : '' })
-
+    res.render('contact/add', {title: 'Add Contact'});
 
 }
 
@@ -63,47 +60,47 @@ module.exports.processAddPage =  (req, res, next) => {
                 else
                 {
                     // Show the edit view 
-                    res.render('contact/edit', {title: 'Edit Contact', contact: contactToEdit,
-                    displayName: req.user ? req.user.displayName : '' })
+                    res.render('contact/edit', {title: 'Edit Contact', contact: contactToEdit})
                 }
            });
         }
 
         module.exports.processEditPage = (req, res, next) => {
-    let id = req.params.id;
+            let id = req.params.id;
+        
+            let updatedContact = Contact({
+                "_id": id,
+                "contact_name": req.body.contact_name,
+                "contact_number": req.body.contact_number,
+                "email_address": req.body.email_address
+            });
+        
+            Contact.updateOne({_id: id}, updatedContact, (err) => {
+                if(err){
+                    console.log(err);
+                    res.end(err);
+                }
+                else
+                {
+                    // Refresh the Contact List
+                    res.redirect('/contact-list');
+                }
+            });
+        }
 
-    let updatedContact = Contact({
-        "_id": id,
-        "contact_name": req.body.contact_name,
-        "contact_number": req.body.contact_number,
-        "email_address": req.body.email_address
-    });
-
-    Contact.updateOne({_id: id}, updatedContact, (err) => {
-        if(err){
-            console.log(err);
-            res.end(err);
-        }
-        else
-        {
-            // Refresh the Contact List
-            res.redirect('/contact-list');
-        }
-    });
-}
-module.exports.performDelete = (req, res, next) => {
-    let id = req.params.id;
-
-    Book.remove({_id: id}, (err) => {
-        if(err)
-        {
-            console.log(err);
-            res.end(err);
-        }
-        else
-        {
-             // refresh the book list
-             res.redirect('/contact-list');
-        }
-    });
-}
+        module.exports.performDelete = (req, res, next) => {
+            let id = req.params.id;
+            
+            Contact.remove({_id: id}, (err) => {
+                if(err)
+                {
+                    console.log(err);
+                    res.end(err);
+                }
+                else
+                {
+                    // Refresh the Contact List
+                    res.redirect('/contact-list');
+                }
+                   });
+            }

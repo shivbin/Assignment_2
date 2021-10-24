@@ -37,23 +37,23 @@ router.get('/contact-me', indexController.displayContactsPage);
 
 /*  Get Route for displaying Login page     */
 
-router.get('/login', indexController.displayLoginPage);
+router.get('/login', contactController.displayLoginPage);
 
 /*  POst Route for processing Login page    */
 
-router.post('/login', indexController.processLoginPage);
+router.post('/login', contactController.processLoginPage);
 
 /*  Get Route for displaying Register page     */
 
-router.get('/register', indexController.displayRegisterPage);
+router.get('/register', contactController.displayRegisterPage);
 
 /*  POst Route for processing Register page    */
 
-router.post('/register', indexController.processRegisterPage);
+router.post('/register', contactController.processRegisterPage);
 
 /*  Get to perform Logout operation   */
 
-router.get('/logout', indexController.performLogout);
+router.get('/logout', contactController.performLogout);
 
 
 module.exports = router;

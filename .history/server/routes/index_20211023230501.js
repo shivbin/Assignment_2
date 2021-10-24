@@ -27,7 +27,7 @@ router.get('/about', function(req, res, next) {
 });
 */
 /* GET Projects page. */
-router.get('/projects', indexController.displayProjectPage);
+router.get('/projects',requireAuth, indexController.displayProjectPage);
 
 /* GET Services page. */
 router.get('/services', indexController.displayServicesPage);

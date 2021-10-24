@@ -20,7 +20,7 @@ function requireAuth(req, res, next)
 
 /*  Get Route for the Contact List page  - REad Operation   */
 
-router.get('/', requireAuth, contactController.displayContactList);
+router.get('/', contactController.displayContactList);
 
 
 /*  Get Route for displaying ADD Contact List page  - Create Operation   */
