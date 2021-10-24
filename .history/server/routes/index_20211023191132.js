@@ -27,13 +27,19 @@ router.get('/about', function(req, res, next) {
 });
 */
 /* GET Projects page. */
-router.get('/projects', indexController.displayProjectPage);
+router.get('/projects', function(req, res, next) {
+  res.render('index', { title: 'Projects', page: 'projects'});
+});
 
 /* GET Services page. */
-router.get('/services', indexController.displayServicesPage);
+router.get('/services', function(req, res, next) {
+  res.render('index', { title: 'Services', page: 'services'});
+});
 
 /* GET Contact Me page. */
-router.get('/contact-me', indexController.displayContactsPage);
+router.get('/contact-me', function(req, res, next) {
+  res.render('index', { title: 'Contact-me', page: 'contact'});
+});
 
 
 module.exports = router;
