@@ -1,8 +1,8 @@
 /* Shiv Bindra
      Student #  300758190
-     Assignment 2
+     Assignment 1
      COMP 229- SECTION 001
-     DATE - OCTOBER, 22, 2021
+     DATE - OCTOBER, 01, 2021
 
 
  */
